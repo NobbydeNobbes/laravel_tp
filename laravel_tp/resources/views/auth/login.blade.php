@@ -27,7 +27,6 @@
         </form>
     </main>
 </body>
-@endsection
 
 
     

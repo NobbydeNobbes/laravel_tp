@@ -40,10 +40,20 @@
             </li>
           </ul>
         <div class="text-end">
+        @if (Route::has('login'))
+            @auth
+            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+            @else
+            <a href="/inscription"><button type="button" class="btn btn-outline-light me-2">Sign-up</button></a>
+            @if (Route::has('register'))
+            <a href="/login"> <button type="button" class="btn btn-outline-light me-2">Login</button></a>
+            @endif
+            @endauth
+            @endif
+                
+         
         
-         <a href="/connexion"> <button type="button" class="btn btn-outline-light me-2">Login</button></a>
-        
-          <a href="/inscription"><button type="button" class="btn btn-outline-light me-2">Sign-up</button></a>
+          
         </div>
         
         </div>
