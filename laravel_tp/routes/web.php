@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomePageController::class, 'index']);
+
+Route::get('/connexion', [AuthController::class, 'login']);
+
+Route::post('/connexion', [AuthController::class, 'authenticate'])->name('connexion');
+
+Route::post('/deconnexion', [AuthController::class, 'logout']);
+
+Route::get('/inscription', [RegisterController::class, 'register']);
